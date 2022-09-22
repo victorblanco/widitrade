@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('/v1')->group(function () {
+Route::middleware('auth.token')->prefix('/v1')->group(function () {
     Route::post('/short-urls', [\App\Http\Controllers\URLController::class, 'short']);
 });
 

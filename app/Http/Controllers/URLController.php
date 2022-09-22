@@ -8,23 +8,20 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
 
-/**
- *
- */
 class URLController extends Controller
 {
 
     /**
      * @var UrlRepository
      */
-    protected $urlRespository;
+    protected UrlRepository $urlRepository;
 
     /**
      * @param UrlRepository $urlRepository
      */
     public function __construct(UrlRepository $urlRepository)
     {
-        $this->urlRespository = $urlRepository;
+        $this->urlRepository = $urlRepository;
     }
 
     /**
@@ -36,7 +33,7 @@ class URLController extends Controller
 
         return response()->json(
             [
-                "url" => $this->urlRespository->short($request->input('url')),
+                "url" => $this->urlRepository->short($request->input('url')),
                 "success" => true
             ]
         );

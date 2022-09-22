@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Auth\TokenValidator;
+use App\Token\TokenValidator;
 use App\Exceptions\TokenException;
 use Tests\TestCase;
 

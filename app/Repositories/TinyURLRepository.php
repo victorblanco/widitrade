@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Clients\TinyURLClient;
+use GuzzleHttp\Exception\GuzzleException;
 
 class TinyURLRepository implements UrlRepository
 {
@@ -10,7 +11,7 @@ class TinyURLRepository implements UrlRepository
     /**
      * @var TinyURLClient
      */
-    protected $tinyURLClient;
+    protected TinyURLClient $tinyURLClient;
 
     /**
      * @param TinyURLClient $tinyURLClient
@@ -23,6 +24,7 @@ class TinyURLRepository implements UrlRepository
     /**
      * @param $url
      * @return string
+     * @throws GuzzleException
      */
     public function short($url): string
     {

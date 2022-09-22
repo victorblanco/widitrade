@@ -49,6 +49,6 @@ class Handler extends ExceptionHandler
         return response()->json([
             "success" => false,
             "message" => $e->getMessage()
-        ]);
+        ], 500); //TODO:  http status by errors
     }
 }

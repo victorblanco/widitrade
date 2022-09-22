@@ -3,7 +3,6 @@
 namespace App\Clients;
 
 use GuzzleHttp\Client;
-use Tests\CreatesApplication;
 
 class TinyURLClient extends Client
 {
@@ -13,7 +12,7 @@ class TinyURLClient extends Client
      */
     public function __construct(array $config = [])
     {
-        $this->url  = config("tinyurl.url");
+        $config['base_uri'] = config("tinyurl.url");
         parent::__construct($config);
     }
 
@@ -24,9 +23,8 @@ class TinyURLClient extends Client
      */
     public function createdApi($url): string
     {
-        $ret    =  $this->get($this->url . 'api-create.php?url=' . $url);
-        $json   = $ret->getBody()->getContents();
+        $ret        = $this->get('api-create.php?url=' . $url);
 
-        return $json;
+        return $ret->getBody()->getContents();
     }
 }
