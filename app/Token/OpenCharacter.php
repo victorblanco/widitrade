@@ -6,7 +6,7 @@ class OpenCharacter extends Character
 {
     /**
      * @param $pile
-     * @return mixed|void
+     * @return void
      */
     public function check(&$pile): void
     {

@@ -34,9 +34,8 @@ class AuthToken
         $token = $request->header('Authorization');
         if($token) {
             $this->tokenValidator->validate($token);
-            return $next($request);
         }
 
-        throw new TokenException('Error format token');
+        return $next($request);
     }
 }

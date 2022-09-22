@@ -3,6 +3,7 @@
 namespace App\Clients;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class TinyURLClient extends Client
 {
@@ -18,12 +19,12 @@ class TinyURLClient extends Client
 
     /**
      * @param $url
-     * @return void
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @return string
+     * @throws GuzzleException
      */
-    public function createdApi($url): string
+    public function create($url): string
     {
-        $ret        = $this->get('api-create.php?url=' . $url);
+        $ret = $this->get('api-create.php?url=' . $url);
 
         return $ret->getBody()->getContents();
     }

@@ -8,10 +8,10 @@ use Tests\TestCase;
 
 class TokenValidatorTest extends TestCase
 {
+
     /**
-     * A basic unit test example.
-     *
      * @return void
+     * @throws TokenException
      */
     public function test_example_worng_token()
     {
@@ -23,9 +23,8 @@ class TokenValidatorTest extends TestCase
     }
 
     /**
-     * A basic unit test example.
-     *
      * @return void
+     * @throws TokenException
      */
     public function test_example_correct_token()
     {
@@ -35,6 +34,10 @@ class TokenValidatorTest extends TestCase
         $this->assertTrue($ret);
     }
 
+    /**
+     * @return void
+     * @throws TokenException
+     */
     public function test_example_wrong_character_token()
     {
         $this->expectException(TokenException::class);
@@ -43,6 +46,10 @@ class TokenValidatorTest extends TestCase
         $tokenValidator->validate('{[a]}');
     }
 
+    /**
+     * @return void
+     * @throws TokenException
+     */
     public function test_example_1()
     {
         $tokenValidator = new TokenValidator();
@@ -51,6 +58,10 @@ class TokenValidatorTest extends TestCase
         $this->assertTrue($ret);
     }
 
+    /**
+     * @return void
+     * @throws TokenException
+     */
     public function test_example_2()
     {
         $tokenValidator = new TokenValidator();
@@ -59,6 +70,10 @@ class TokenValidatorTest extends TestCase
         $this->assertTrue($ret);
     }
 
+    /**
+     * @return void
+     * @throws TokenException
+     */
     public function test_example_3()
     {
         $this->expectException(TokenException::class);
@@ -68,6 +83,10 @@ class TokenValidatorTest extends TestCase
 
     }
 
+    /**
+     * @return void
+     * @throws TokenException
+     */
     public function test_example_4()
     {
         $this->expectException(TokenException::class);
@@ -77,6 +96,10 @@ class TokenValidatorTest extends TestCase
 
     }
 
+    /**
+     * @return void
+     * @throws TokenException
+     */
     public function test_example_5()
     {
         $tokenValidator = new TokenValidator();
@@ -85,6 +108,10 @@ class TokenValidatorTest extends TestCase
         $this->assertTrue($ret);
     }
 
+    /**
+     * @return void
+     * @throws TokenException
+     */
     public function test_example_6()
     {
         $this->expectException(TokenException::class);

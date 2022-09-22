@@ -8,8 +8,6 @@ use Tests\TestCase;
 class ShortUrlTest extends TestCase
 {
     /**
-     * A basic feature test example.
-     *
      * @return void
      */
     public function test_call_without_params()
@@ -105,10 +103,10 @@ class ShortUrlTest extends TestCase
         );
 
         $response->assertSimilarJson([
-            "message" => "Error format token",
-            "success" => false
+            "url" => $urlTest,
+            "success" => true
         ]);
 
-        $response->assertStatus(500);
+        $response->assertStatus(200);
     }
 }

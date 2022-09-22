@@ -12,4 +12,5 @@ interface UrlRepository
      * @return string
      */
     public function short($url): string;
+
 }

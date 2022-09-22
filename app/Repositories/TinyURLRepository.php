@@ -28,6 +28,6 @@ class TinyURLRepository implements UrlRepository
      */
     public function short($url): string
     {
-        return $this->tinyURLClient->createdApi($url);
+        return $this->tinyURLClient->create($url);
     }
 }

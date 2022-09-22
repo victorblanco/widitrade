@@ -18,15 +18,6 @@ abstract class Character
     }
 
     /**
-     * Getter Character
-     * @return string
-     */
-    public function getCharacter(): string
-    {
-        return $this->character;
-    }
-
-    /**
      * @param $pile
      * @return string
      */
