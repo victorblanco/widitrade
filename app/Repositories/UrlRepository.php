@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Repositories;
+namespace App\Repositories;
 
-interface UrlInterface
+interface UrlRepository
 {
     /**
+     *
+     * Return a short url
+     *
      * @param $url
      * @return string
      */

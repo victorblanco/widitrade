@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Repositories\UrlRepository;
+use App\Http\Requests\UrlRequest;
+use App\Repositories\UrlRepository;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 
@@ -29,11 +28,12 @@ class URLController extends Controller
     }
 
     /**
-     * Method invoke
+     * Short url with URLRespository
      * @return Response
      */
-    public function short(Request $request): JsonResponse
+    public function short(UrlRequest $request): JsonResponse
     {
+
         return response()->json(
             [
                 "url" => $this->urlRespository->short($request->input('url')),

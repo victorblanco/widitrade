@@ -2,7 +2,18 @@
 
 namespace App\Http\Requests;
 
-class UrlRequest
+use Illuminate\Foundation\Http\FormRequest;
+
+class UrlRequest extends FormRequest
 {
 
+    /**
+     * @return string[]
+     */
+    public function rules(): array
+    {
+        return [
+            "url" => "required|url"
+        ];
+    }
 }
